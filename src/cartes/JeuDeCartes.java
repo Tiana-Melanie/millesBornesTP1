@@ -24,12 +24,12 @@ public class JeuDeCartes {
 		typesDeCartes[3] = new Configuration(new Borne(100), 12);
 		typesDeCartes[4] = new Configuration(new Borne(200), 4);
 		typesDeCartes[5] = new Configuration(new Parade(Type.FEU), 14);
-		typesDeCartes[6] = new Configuration(new Parade(Type.LIMITE), 6);
+		typesDeCartes[6] = new Configuration(new FinLimite(), 6);
 		typesDeCartes[7] = new Configuration(new Parade(Type.ESSENCE), 6);
 		typesDeCartes[8] = new Configuration(new Parade(Type.CREVAISON), 6);
 		typesDeCartes[9] = new Configuration(new Parade(Type.ACCIDENT), 6);
 		typesDeCartes[10] = new Configuration(new Attaque(Type.FEU), 5);
-		typesDeCartes[11] = new Configuration(new Attaque(Type.LIMITE), 4);
+		typesDeCartes[11] = new Configuration(new DebutLimite(), 4);
 		typesDeCartes[12] = new Configuration(new Attaque(Type.ESSENCE), 3);
 		typesDeCartes[13] = new Configuration(new Attaque(Type.CREVAISON), 3);
 		typesDeCartes[14] = new Configuration(new Attaque(Type.ACCIDENT), 3);
