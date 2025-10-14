@@ -8,8 +8,16 @@ public abstract class Probleme extends Carte {
 		return type;
 	}
 
-	public Probleme(Type type) {
+	protected Probleme(Type type) {
 		this.type = type;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Probleme pb) {
+			return this.getClass()== pb.getClass() && type.equals(pb.getType());
+		}
+		return false;
 	}
 
 }

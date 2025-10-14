@@ -12,8 +12,7 @@ public class Sabot implements Iterable<Carte>{
 	private int indicateur = 0;
 	
 	 public Sabot(Carte[] initial) {
-	        this.carte = new Carte[initial.length];
-	        System.arraycopy(initial, 0, this.carte, 0, initial.length);
+	        this.carte = initial;
 	        this.nbCartes = initial.length;
 	    }
 	 
@@ -85,7 +84,7 @@ public class Sabot implements Iterable<Carte>{
 	        throw new NoSuchElementException("Le sabot est vide");
 	    }
 	    Carte c = it.next();
-	    it.remove(); // supprime la première carte
+	    it.remove();
 	    return c;
 	}
 	

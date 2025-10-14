@@ -10,6 +10,6 @@ public class Attaque extends Bataille {
 	public String toString() {
 		return getType().getAttaque();
 	}
-	
+
 
 }

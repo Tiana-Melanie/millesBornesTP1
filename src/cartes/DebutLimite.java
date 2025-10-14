@@ -7,6 +7,5 @@ public class DebutLimite extends Limite {
 		return "Limite 50";
 	}
 
-	
 
 }

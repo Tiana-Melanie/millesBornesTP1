@@ -37,7 +37,7 @@ public class TestSabot {
 	}
 
 	// 4.2.c
-/*	public void questionC() {
+	public void questionC() {
 		Carte cartePiochee = sabot.piocher();
 		System.out.println("Je pioche " + cartePiochee);
 		for (Iterator<Carte> iterator = sabot.iterator(); iterator.hasNext();) {
@@ -49,36 +49,7 @@ public class TestSabot {
 		}
 		Iterator<Carte> iterator = sabot.iterator();
 		System.out.println("\nLa pioche contient encore des cartes ? " + iterator.hasNext());
-	}*/
-	
-	public void questionC() {
-
-	    //Cas1 : utiliser piocher() dans une boucle avec un itérateur
-	    try {
-	        sabot = new Sabot(new JeuDeCartes().donnerCartes()); // recréer un sabot complet
-	        for (Iterator<Carte> iterator = sabot.iterator(); iterator.hasNext();) {
-	            Carte carte = iterator.next();
-	            System.out.println("Je pioche " + carte);
-	            sabot.piocher(); //
-	        }
-	    } catch (Exception e) {
-	        System.out.println("piocher dans boucle: " + e);
-	    }
-
-	    //Cas2 : insérer une carte pendant la boucle
-	    try {
-	        sabot = new Sabot(new JeuDeCartes().donnerCartes()); 
-	        sabot.piocher(); //pour éviter un dépassement du tableau
-	        for (Iterator<Carte> iterator = sabot.iterator(); iterator.hasNext();) {
-	            Carte carte = iterator.next();
-	            System.out.println("Je pioche " + carte);
-	            sabot.ajouterCarte(new Botte(cartes.Type.ACCIDENT));
-	        }
-	    } catch (Exception e) {
-	        System.out.println("ajouterCarte dans boucle : " + e);
-	    }
 	}
-
 
 	public static void main(String[] args) {
 		TestSabot testPioche = new TestSabot();
