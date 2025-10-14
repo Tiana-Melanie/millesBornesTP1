@@ -17,7 +17,7 @@ public class TestMethodeEquals {
 		
 		Carte c3 = new DebutLimite();
 		Carte c4 = new FinLimite();
-		System.out.println("Deux carte debut et fin limites sont identique ?" + c3.equals(c4));
+		System.out.println("Deux cartes debut et fin limites sont identiques ?" + c3.equals(c4));
 		
 	}
 }
