@@ -15,6 +15,14 @@ public class JeuDeCartes {
 			this.nbExemplaires = nbExemplaire;;
 			
 		}
+		
+		public Carte getCarte() {
+			return carte;
+		}
+		
+		public int getNbExemplaire() {
+			return nbExemplaires;
+		}
 	}
 	
 	public JeuDeCartes() {
@@ -64,11 +72,21 @@ public class JeuDeCartes {
 	}
 	
 	public boolean checkCount() {
-		int total_carte = 0;
-		for(int i = 0; i <typesDeCartes.length; i++) {
-			total_carte += typesDeCartes[i].nbExemplaires;
+		Carte[] cartes = donnerCartes();
+		for (Configuration conf : typesDeCartes) {
+			Carte carteAttendu = conf.getCarte();
+			int nbCarteAttendu = conf.getNbExemplaire();
+			int nbCarteTrouve = 0;
+			for (Carte carte : cartes) {
+				if (carte == carteAttendu) {
+					nbCarteTrouve++;
+				}
+			}
+			if (nbCarteTrouve != nbCarteAttendu) {
+				return false;
+			}
 		}
-		return total_carte == 106;
+		return true;
 	}
 	
 	

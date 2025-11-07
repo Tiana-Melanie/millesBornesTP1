@@ -1,15 +1,15 @@
 package utils;
 import java.util.*;
 public class GestionCartes {
-	
-	//supprime et retourne l'élèment
+	private static Random random = new Random();
+	//a.extraire_v1
 	public static <T> T extraire (List<T> liste) {
-		int i = new Random().nextInt(liste.size());  //indice de l'élement à supprimer
+		int i = random.nextInt(liste.size());  //indice de l'élement à supprimer
 		return liste.remove(i);
 	}
-	
+	//a.extraire_v2
 	public static <T> T extraire_I (List<T> liste) {
-		int index = new Random().nextInt(liste.size());
+		int index = random.nextInt(liste.size());
 		ListIterator<T> iterateur = liste.listIterator();
 		for(int i = 0; i<= index ; i++) { //avance jusqu'à l'élèment qu'on veut retirer
 			iterateur.next();
@@ -20,10 +20,8 @@ public class GestionCartes {
 	}
 	
 	//b.mélanger 
-	
 	public static <T> List<T>melanger(List<T> liste){
 		List<T> res = new ArrayList();
-		Random random = new Random();
 	    while (!liste.isEmpty()) {
 	        int index = random.nextInt(liste.size());
 	        res.add(liste.remove(index));
@@ -46,29 +44,48 @@ public class GestionCartes {
 	}
 	
 	//d.rassembler 
-	public static <T> List<T> rassembler(List<T> liste){
-		List<T> res = new ArrayList<> (liste);
-		for(T elem : liste) {
-			if(!res.contains(elem)) {
-				for(T e : liste) {
-					if(e.equals(elem)) {
-						res.add(e);
-					}
-				}
-			}
-		}
-		return res;
+	public static <T> List<T> rassembler(List<T> liste) {
+	    List<T> resultat = new ArrayList<>();
+	    Set<T> dejaVu = new HashSet<>();
+
+	    for (T elem : liste) {
+	        if (!dejaVu.contains(elem)) {
+	            for (T e : liste) {
+	                if (e.equals(elem)) {
+	                    resultat.add(e);
+	                }
+	            }
+	            dejaVu.add(elem);
+	        }
+	    }
+
+	    return resultat;
 	}
+	
 	
 	//e.verifierRassemblement
 	public static <T> boolean verifierRassemblement(List<T> liste) {
-	    for (int i = 1; i < liste.size(); i++) {
-	        if (liste.subList(i, liste.size()).contains(liste.get(i - 1))) {
-	            return false;
-	        }
+	    if (liste.isEmpty()) {
+	    	return true;
 	    }
+
+	    ListIterator<T> it1 = liste.listIterator();
+	    T precedent = it1.next(); //premier élément
+	    while (it1.hasNext()) {
+	        T courant = it1.next();
+	        if (!courant.equals(precedent)) {
+	            ListIterator<T> it2 = liste.listIterator(it1.nextIndex());
+	            while (it2.hasNext()) {
+	                if (precedent.equals(it2.next())) {
+	                }
+	            }
+	        }
+	        precedent = courant; // mise à jour du précédent
+	    }
+
 	    return true;
 	}
+
 	
 	
 	
